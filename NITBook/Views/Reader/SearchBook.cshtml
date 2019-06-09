@@ -1,11 +1,11 @@
-﻿
+﻿@model IEnumerable<NITBook.Models.Book>
 @{
     ViewBag.Title = "图书查询";
     Layout = "~/Views/Shared/ReaderCenter.cshtml";
 }
 
 <div class="mt-2">
-    @using (Html.BeginForm("Result", "Search", FormMethod.Get))
+    @using (Html.BeginForm("Result", "Reader", FormMethod.Get))
     {
         <div class="form-group form-inline justify-content-center">
             <select id="bookSort1" class="form-control mr-2" onchange="selectChange(this)">
@@ -23,157 +23,49 @@
             </div>
         </div>
     }
-    <div class="text-center">
-        
-    </div>
+    
 </div>
 <main class="container">
     <ul class="list-group">
-        <li class="list-group-item mb-2">
-            <div class="row">
-                <div class="col-md-2">
-                    <img src="~/Content/image/book/r1-1.jpg" class="img-thumbnail">
+        @foreach (var item in Model)
+        {
+            <li class="list-group-item mb-2">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src=@item.imageUrl class="img-thumbnail" />
+                    </div>
+                    <div class="info col-md-6">
+                        <h2 class="mb-4">@Html.ActionLink(item.bookName, "bookDetails", "Reader", new { id = item.bookID }, null) </h2>
+                        <div>
+                            <strong class="d-block mb-2">
+                                @item.author / @item.publicName /@item.publicTime.ToString("yyyy-MM-dd") /@item.sort
+                            </strong>
+                        </div>
+                        <p>
+                            @{
+                                if (item.info != null && item.info.Length > 50)
+                                { @item.info.Substring(0, 100);@Html.Encode("...");
+                                }
+                                else
+                                {
+                                    @item.info;
+                                }
+                            }
+                        </p>
+                    </div>
+                    <div class="col-md-4 card">
+                        <h2>标签</h2>
+                        <strong class="text-left">余华</strong>
+                        <strong class="text-center">活着</strong>
+                        <strong class="text-right">人生</strong>
+                        <strong class="text-left">人性</strong>
+                        <strong class="text-left">中国文学</strong>
+                        <strong class="text-right">当代文学</strong>
+                    </div>
                 </div>
-                <div class="info col-md-6">
-                    <h2 class="mb-4">@Html.ActionLink("活着", "bookDetails",new {id=1 }, null) </h2>
-                    <p>
-                        <strong class="d-block mb-2">
-                            余华 / 作家出版社 / 2012-8-1 /
-                            20.00元
-                        </strong>《活着(新版)》讲述了农村人福贵悲惨的人生遭遇。福贵本是个阔少爷，可他嗜赌如命，终于赌光了家业，一贫如洗。他的父亲被他活活气死，母亲则在穷困中患了重病
-                    </p>
-                </div>
-                <div class="col-md-4 card">
-                    <h2>标签</h2>
-                    <strong class="text-left">余华</strong>
-                    <strong class="text-center">活着</strong>
-                    <strong class="text-right">人生</strong>
-                    <strong class="text-left">人性</strong>
-                    <strong class="text-left">中国文学</strong>
-                    <strong class="text-right">当代文学</strong>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item mb-2">
-            <div class="row">
-                <div class="col-md-2">
-                    <img src="~/Content/image/book/r2-1.jpg" class="img-thumbnail">
-                </div>
-                <div class="info col-md-6">
-                    <h2 class="mb-4">
-                        <a href="">解忧杂货店</a>
-                    </h2>
-                    <p>
-                        <strong class="d-block mb-2">
-                            东野圭吾 / 李盈春 / 南海出版公司 / 2014-5 /
-                            39.50元
-                        </strong>现代人内心流失的东西，这家杂货店能帮你找回—— 僻静的街道旁有一家杂货店，只要写下烦恼投进卷帘门的投信口，第二天就会在店后的牛奶箱里得到回答。
-                        因男友身患绝...
-                    </p>
-                </div>
-                <div class="col-md-4 card">
-                    <h2>标签</h2>
-                    <strong class="text-left">东野圭吾</strong>
-                    <strong class="text-center">治愈</strong>
-                    <strong class="text-center">温暖</strong>
-                    <strong class="text-left">小说</strong>
-                    <strong class="text-right">日本文学</strong>
-                    <strong class="text-center">推理</strong>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item mb-2">
-            <div class="row">
-                <div class="col-md-2">
-                    <img src="~/Content/image/book/r3-1.jpg" class="img-thumbnail">
-                </div>
-                <div class="info col-md-6">
-                    <h2 class="mb-4"><a href="">追风筝的人</a></h2>
-                    <p>
-                        <strong class="d-block mb-2">[美] 卡勒德·胡赛尼 / 李继宏 / 上海人民出版社 / 2006-5 / 29.00元</strong>
-                        12岁的阿富汗富家少爷阿米尔与仆人哈桑情同手足。然而，在一场风筝比赛后，发生了一件悲惨不堪的事，阿米尔为自己的懦弱感到自责和痛苦，逼走了哈桑，不久，自己也跟
-                    </p>
-                </div>
-                <div class="col-md-4 card">
-                    <h2>标签</h2>
-                    <strong class="text-left">追风筝的人</strong>
-                    <strong class="text-center">人性</strong>
-                    <strong class="text-center">救赎</strong>
-                    <strong class="text-left">阿富汗</strong>
-                    <strong class="text-right">小说</strong>
-                    <strong class="text-left">外国文学</strong>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item mb-2">
-            <div class="row">
-                <div class="col-md-2">
-                    <img src="~/Content/image/book/r4-1.jpg" class="img-thumbnail">
-                </div>
-                <div class="info col-md-6">
-                    <h2 class="mb-4"><a href="">三体</a></h2>
-                    <p>
-                        <strong class="d-block mb-2">刘慈欣 / 重庆出版社 / 2008-1 / 23.00</strong>
-                        文化大革命如火如荼进行的同时。军方探寻外星文明的绝秘计划“红岸工程”取得了突破性进展。但在按下发射键的那一刻，历经劫难的叶文洁没有意识到，她彻底改变了人类的...
-                    </p>
-                </div>
-                <div class="col-md-4 card">
-                    <h2>标签</h2>
-                    <strong class="text-left">科幻</strong>
-                    <strong class="text-center">刘慈欣</strong>
-                    <strong class="text-center">三体</strong>
-                    <strong class="text-left">科幻小说</strong>
-                    <strong class="text-right">中国科幻</strong>
-                    <strong class="text-left">硬科幻</strong>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item mb-2">
-            <div class="row">
-                <div class="col-md-2">
-                    <img src="~/Content/image/book/r5-1.jpg" class="img-thumbnail">
-                </div>
-                <div class="info col-md-6">
-                    <h2 class="mb-4"><a href="">白夜行</a></h2>
-                    <p>
-                        <strong class="d-block mb-2">[日] 东野圭吾 / 刘姿君 / 南海出版公司 / 2008-9 / 29.80元</strong>
-                        “只希望能手牵手在太阳下散步”，这个象征故事内核的绝望念想，有如一个美丽的幌子，随着无数凌乱、压抑、悲凉的故事片段像纪录片一样一一还原：没有痴痴相思，没有海...
-                    </p>
-                </div>
-                <div class="col-md-4 card">
-                    <h2>标签</h2>
-                    <strong class="text-left">东野圭吾</strong>
-                    <strong class="text-center">推理</strong>
-                    <strong class="text-center">日本</strong>
-                    <strong class="text-left">悬疑</strong>
-                    <strong class="text-right">推理小说</strong>
-                    <strong class="text-left">日本文学</strong>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item mb-2">
-            <div class="row">
-                <div class="col-md-2">
-                    <img src="~/Content/image/book/r6-1.jpg" class="img-thumbnail">
-                </div>
-                <div class="info col-md-6">
-                    <h2 class="mb-4"><a href="">月亮与六便士</a></h2>
-                    <p>
-                        <strong class="d-block mb-2">[英] 威廉·萨默塞特·毛姆 / 徐淳刚 / 浙江文艺出版社 / 2017-1-1 / 39.80元</strong>
-                        “满地都是六便士，他却抬头看见了月亮。” 银行家查尔斯，人到中年，事业有成，为了追求内心隐秘的绘画梦想，突然抛妻别子，弃家出走。他深知：人的每一种身份都是一...
-                    </p>
-                </div>
-                <div class="col-md-4 card">
-                    <h2>标签</h2>
-                    <strong class="text-left">月亮与六便士</strong>
-                    <strong class="text-center">毛姆</strong>
-                    <strong class="text-center">经典</strong>
-                    <strong class="text-left">外国文学</strong>
-                    <strong class="text-right">英国</strong>
-                    <strong class="text-left">文学</strong>
-                </div>
-            </div>
-        </li>
+            </li>
+                                }
+
     </ul>
 </main>
 <nav aria-label="Page navigation example">

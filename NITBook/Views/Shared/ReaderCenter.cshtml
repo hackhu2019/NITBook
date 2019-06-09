@@ -1,6 +1,7 @@
 ﻿@using NITBook.Models;
 @{
     Layout = null;
+    ViewBag.name = ((User)Session["user"]).userName;
 }
 
 <!DOCTYPE html>
@@ -15,7 +16,8 @@
     @Styles.Render("~/Content/bootstrap.min.css")
     @Styles.Render("~/Content/detail.css")
     @Styles.Render("~/Content/sort.css")
-    <script src="~/Scripts/jquery-3.3.1.slim.min.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~//layui/layui.all.js"></script>
 </head>
 
 <body>
@@ -80,9 +82,9 @@
     </div>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
-    <script src="~//layui/layui.all.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/Scripts/NIT/check.js"></script>
-    @*<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>*@
+    
     <script>
         //JavaScript代码区域
         layui.use('element', function () {

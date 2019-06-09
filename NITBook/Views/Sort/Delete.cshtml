@@ -1,0 +1,32 @@
+﻿@model NITBook.Models.BookSort
+
+@{
+    ViewBag.Title = "删除分类";
+    Layout = "~/Views/Shared/Mange.cshtml";
+}
+
+<h2>删除分类</h2>
+
+<h3>确认要删除该条信息?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="确认删除" class="btn btn-danger" /> |
+            @Html.ActionLink("返回总览", "Index", new { }, new { @class = "badge badge-info" })
+        </div>
+    }
+</div>

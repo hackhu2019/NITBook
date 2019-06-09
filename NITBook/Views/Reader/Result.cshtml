@@ -1,0 +1,91 @@
+﻿@model IEnumerable<NITBook.Models.Book>
+@{
+    ViewBag.Title = "图书查询";
+    Layout = "~/Views/Shared/ReaderCenter.cshtml";
+}
+
+<div class="mt-2">
+    @using (Html.BeginForm("Result", "Reader", FormMethod.Get))
+    {
+        <div class="form-group form-inline justify-content-center">
+            <select id="bookSort1" class="form-control mr-2" onchange="selectChange(this)">
+                <option value="0">选择书籍大类</option>
+                <option value="1">文学类</option>
+                <option value="2">流行类</option>
+            </select>
+            <select id="bookSort2" class="form-control mr-2">
+                <option value="0">选择小类</option>
+            </select>
+
+            <div class="form-group">
+                <input name="name" class="form-control mr-2" type="text" placeholder="请输入要查找的书籍/作者名称">
+                <button class="btn btn-dark" type="submit" value="Search">搜索</button>
+            </div>
+        </div>
+    }
+
+</div>
+
+<div class="text-center">
+    <h1> 搜索内容：@ViewBag.Search</h1>
+    <h1> 查找结果：@Model.Count() 条记录</h1>
+</div>
+
+<main class="container">
+    <ul class="list-group">
+        @foreach (var item in Model)
+        {
+            <li class="list-group-item mb-2">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src=@item.imageUrl class="img-thumbnail" />
+                    </div>
+                    <div class="info col-md-6">
+                        <h2 class="mb-4">@Html.ActionLink(item.bookName, "bookDetails", "Reader", new { id = item.bookID }, null) </h2>
+                        <div>
+                            <strong class="d-block mb-2">
+                                @item.author / @item.publicName /@item.publicTime.ToString("yyyy-MM-dd") /@item.sort
+                            </strong>
+                        </div>
+                        <p>
+                            @{
+                                if (item.info != null && item.info.Length > 50)
+                                { @item.info.Substring(0, 100);@Html.Encode("...");
+                                }
+                                else
+                                {
+                                    @item.info;
+                                }
+                            }
+                        </p>
+                    </div>
+                    <div class="col-md-4 card">
+                        <h2>标签</h2>
+                        <strong class="text-left">余华</strong>
+                        <strong class="text-center">活着</strong>
+                        <strong class="text-right">人生</strong>
+                        <strong class="text-left">人性</strong>
+                        <strong class="text-left">中国文学</strong>
+                        <strong class="text-right">当代文学</strong>
+                    </div>
+                </div>
+            </li>
+                                }
+
+    </ul>
+</main>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">&laquo;</a>
+        </li>
+        <li class="page-item"><a class="page-link text-dark" href="#">1</a></li>
+        <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
+        <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#">&raquo;</a>
+        </li>
+    </ul>
+</nav>
+<script src="~/Scripts/NIT/search.js"></script>

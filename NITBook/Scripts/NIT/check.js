@@ -1,4 +1,7 @@
-﻿function check(returnInfo) {
+﻿$('#back').click(function () {
+    history.back(-1);
+});
+function check(returnInfo) {
     if (returnInfo == "success") {
         layer.msg("密码修改成功", { icon: 2 });
         window.setTimeout(function () { window.location.href = "/Reader" }, 300);
@@ -9,7 +12,7 @@
 }
 
 function checkInfo(info) {
-    if (info == "bookNoExist" || info == userNoExist) {
+    if (info == "userNoExist" || info == "bookNoExist") {
         layer.msg("访问非法", { icon: 2 });
         window.setTimeout(function () { window.location.reload(); }, 300);
     }

@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<NITBook.Models.Book>
+
 @{
     ViewBag.Title = "图书列表";
     Layout = "~/Views/Shared/ReaderCenter.cshtml";
@@ -7,25 +8,45 @@
 <div class="row flex-xl-nowrap">
     <div id="navs-Left" class="col-12 col-md-3">
         <form action="">
-            <input type="search" name="search" class="form-control" id="search" placeholder="请输入要查找分类">
+            <input type="search" name="sort" class="form-control" id="search" placeholder="请输入要查找分类">
         </form>
         <nav class="collapse bd-links">
-            <div class="bd-toc-item">
-                <a>文学</a>
-            </div>
-            <div class="bd-toc-item"><a>流行</a></div>
-            <div class="bd-toc-item"><a>文化</a></div>
-            <div class="bd-toc-item"><a>生活</a></div>
-            <div class="bd-toc-item"><a>经营</a></div>
-            <div class="bd-toc-item"><a>科技</a></div>
+            <div class="bd-toc-item">@Html.ActionLink("文学", "BooksList", new { sort = "文学" })</div>
+            <div class="bd-toc-item">@Html.ActionLink("流行", "BooksList", new { sort = "流行" })</div>
+            <div class="bd-toc-item">@Html.ActionLink("文化", "BooksList", new { sort = "文化" })</div>
+            <div class="bd-toc-item">@Html.ActionLink("生活", "BooksList", new { sort = "生活" })</div>
+            <div class="bd-toc-item">@Html.ActionLink("经管", "BooksList", new { sort = "经管" })</div>
+            <div class="bd-toc-item">@Html.ActionLink("科技", "BooksList", new { sort = "科技" })</div>
         </nav>
     </div>
     <div class="col-12 col-md-9">
         <section>
-            <h2 id="" class="title">文学类</h2>
-            <p class="story">小说</p>
-            <div class="row">
-                <div class="col-sm-6 col-md-4 col-xl-3 mb-3 book">
+            <h2 id="" class="title">@ViewBag.Sort</h2>
+           <hr />
+            <div class="row" id="list">
+                @foreach (var item in Model)
+                {
+                    <div class="col-sm-6 col-md-4 col-xl-3 mb-3 book">
+                        
+                            <img class="img-thumbnail mb-3" src=@item.imageUrl alt="图书一" width="240"
+                                 height="150">
+                            <h5 class="mb-1"> @Html.ActionLink(item.bookName, "bookDetails", new { id = item.bookID })</h5>
+                       
+                        <p class="text-muted">
+                            @{
+                                if (item.info != null && item.info.Length > 50)
+                                { @item.info.Substring(0, 50);@Html.Encode("...");
+                                }
+                                else
+                                {
+                                    @item.info;
+                                }
+                            }
+                        </p>
+                    </div>
+                }
+
+                @*<div class="col-sm-6 col-md-4 col-xl-3 mb-3 book">
                     <a href="">
                         <img class="img-thumbnail mb-3" src="~/Content/image/book/book1-1.jpg" alt="图书一" width="240"
                              height="150">
@@ -105,7 +126,7 @@
                     <p class="text-muted">
                         只希望能手牵手在太阳下散步”，这个象征故事内核的绝望念想，有如一个美丽的幌子，随着无数凌乱、压抑、悲凉的故事片段像纪录片一样一一还原
                     </p>
-                </div>
+                </div>*@
             </div>
         </section>
         <nav aria-label="Page navigation example">

@@ -20,7 +20,16 @@ namespace NITBook.Controllers
 
         public ActionResult SearchBook()
         {
-            return View();
+            return View(db.Books.ToList());
+        }
+
+        public ActionResult Result(string name)
+        {
+            ViewBag.Search = name;
+            var books = db.Books
+                .Where(a => a.bookName.Contains(name))
+                .ToList();
+            return View(books);
         }
 
         public ActionResult bookDetails(int id)
@@ -32,9 +41,23 @@ namespace NITBook.Controllers
             }
             return View(book);
         }
+
+        
         public ActionResult BooksList()
         {
-            return View();
+            ViewBag.Sort = "文学";
+            return View(db.Books.ToList());
+        }
+
+        [HttpGet]
+        public ActionResult BooksList(string sort)
+        {
+            if (sort == null)
+            {
+                sort = "文学";
+            }
+            ViewBag.Sort = sort;
+            return View(db.Books.Where(a => a.sort == sort).ToList());
         }
 
         public ActionResult UserDetails(int? id)

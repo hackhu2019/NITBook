@@ -1,6 +1,7 @@
 ﻿@using NITBook.Models;
 @{
     Layout = null;
+    ViewBag.name = ((User)Session["user"]).userName;
 }
 
 <!DOCTYPE html>
