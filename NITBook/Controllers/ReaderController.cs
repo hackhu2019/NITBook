@@ -1,0 +1,141 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using NITBook.Filter;
+using NITBook.Models;
+using System.Data.Entity;
+
+namespace NITBook.Controllers
+{
+    public class ReaderController : Controller
+    {
+        private NITBookContext db = new NITBookContext();
+        // GET: Reader
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult SearchBook()
+        {
+            return View();
+        }
+
+        public ActionResult bookDetails(int id)
+        {
+            Book book = db.Books.Find(id);
+            if (book == null)
+            {
+                return RedirectToAction("BooksList");
+            }
+            return View(book);
+        }
+        public ActionResult BooksList()
+        {
+            return View();
+        }
+
+        public ActionResult UserDetails(int? id)
+        {
+            if (id == null)
+            {
+                return Redirect("Index");
+            }
+            return View(db.Users.Find(id));
+        }
+
+        public ActionResult EditInfo(int? id)
+        {
+            if (id == null)
+            {
+                return Redirect("Index");
+            }
+            return View(db.Users.Find(id));
+        }
+
+        [HttpPost]
+        public ActionResult EditInfo(int id, string password)
+        {
+            User user = db.Users.Where(a=>a.Id==id).First() ;
+            db.Configuration.ValidateOnSaveEnabled = false;
+            user.password = password;
+            db.SaveChanges();
+            db.Configuration.ValidateOnSaveEnabled = true;
+            return View(user);
+        }
+
+        public ActionResult Cancellation() // 注销登陆，清空 Session
+        {
+            HttpContext.Session.Clear();
+            return Redirect("Index");
+        }
+
+        public ActionResult BorrowInfoes(int id)
+        {
+            return View(db.BorrowInfo.Where(a=>a.readerId==id).ToList());
+        }
+
+        [HttpPost]
+        public ActionResult borrowBook(int readId,int bookId)
+        {
+            Book book = db.Books.Find(bookId);
+            User user = db.Users.Find(readId);
+
+            if (book == null)
+            {
+                return Json("bookNoExist");
+            }
+            else if (user==null)
+            {
+                return Json("userNoExist");
+            }
+            else if (book.number<=0)
+            {
+                return Json("noEnough");
+            }
+
+            BorrowInfo info = new BorrowInfo(); // 新增借阅记录
+            info.bookName = book.bookName;
+            info.readerId = user.Id;
+            info.borrowTime = DateTime.Now;
+            info.isBeyond = false;
+
+            db.Configuration.ValidateOnSaveEnabled = false;
+            book.number -= 1; // 同时扣除库存和增加借阅数
+            book.borrowNumber += 1;
+            db.BorrowInfo.Add(info);
+            db.SaveChanges();
+            db.Configuration.ValidateOnSaveEnabled = true;
+            return RedirectToAction("BorrowInfoes",new {id=readId });
+        }
+
+        public ActionResult returnBook(int borrowId)
+        {
+            
+            BorrowInfo info = db.BorrowInfo.Find(borrowId);  // 获取指定的借阅的数据
+            Book book = db.Books.Where(a=>a.bookName==info.bookName).First();
+            if (info == null)
+            {
+                return Json("NoExit");
+            }
+            TimeSpan day = DateTime.Now - db.BorrowInfo.Find(borrowId).borrowTime; // 计算借阅时间
+
+            db.Configuration.ValidateOnSaveEnabled = false;
+            if (day.Days > 30)
+            {
+                info.isBeyond = true;
+                db.SaveChanges();
+                db.Configuration.ValidateOnSaveEnabled = true;
+                return Json("ToLong");
+            }
+            info.backTime = DateTime.Now;
+            book.number += 1; // 同时增加库存和减少借阅数
+            book.borrowNumber -= 1;
+            db.SaveChanges();
+            db.Configuration.ValidateOnSaveEnabled = true;
+            return RedirectToAction("BorrowInfoes", new { id = info.readerId });
+        }
+    }
+}

@@ -1,0 +1,39 @@
+﻿@model NITBook.Models.User
+
+@{
+    ViewBag.Title = "边界借阅信息";
+    Layout = "~/Views/Shared/ReaderCenter.cshtml";
+}
+
+<h2>编辑用户信息</h2>
+
+@using (Ajax.BeginForm("EditInfo",new {id=Model.Id }, new AjaxOptions { HttpMethod = "post", OnSuccess = "check" }))
+{
+    <div class="form-horizontal">
+        <div class="form-group mb-3">
+            <label class="control-label col-md-2">旧密码</label>
+            <input type="text" class="col-md-8 form-control" readonly value="@Model.password" />
+        </div>
+        
+        <div class="form-group mb-3">
+            <label class="control-label col-md-2">新密码</label>
+            <input required id="pwd1" type="password" class="col-md-8 form-control" placeholder="请输入 6-12 位有效密码"  />
+        </div>
+
+        <div class="form-group mb-3">
+            <label class="control-label col-md-2">确认密码</label>
+            <input required id="pwd2" type="password" class="col-md-8 form-control" name="password" placeholder="两次密码请保持一致" />
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input id="submit"  type="submit" value="保存" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("返回用户中心", "Index",null, new { @class = "badge badge-info" })
+</div>
+

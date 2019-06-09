@@ -1,0 +1,160 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <title>@ViewBag.Title--NIT图书馆</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    @Styles.Render("~/Content/bootstrap.min.css")
+    @Styles.Render("~/Content/footer.css")
+    @Styles.Render("~/Content/main.css")
+    <script src="~/Scripts/jquery-3.3.1.slim.min.js"></script>
+
+    <link rel="shorcut icon" href="~/Content/image/NIT-Icon.jpg" type="image/x-icon" />
+    
+</head>
+
+<body>
+    <header class="">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+            <a class="navbar-brand" href="#"><img src="~/Content/image/NIT-Library.jpg" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="text-center collapse navbar-collapse" id="navbarSupportedContent">
+                <ul id="navs" class="navbar-nav">
+                    <li class="nav-item">
+                        @Html.ActionLink("主页","Index","Home",new { area=""},new { @class= "nav-link" })
+                        
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("书籍分类", "Sort", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("排行榜", "List", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            数字资源
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">维普网</a>
+                            <a class="dropdown-item" href="#">CNKI知网</a>
+                            <a class="dropdown-item" href="#">万方数据资源系统</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("NIT图书馆简介", "Info", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("联系我们", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("登陆", "Index", "Login", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+@RenderBody()
+    <footer class="bd-footer text-muted bg-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                        <img src="~/Content/image/NIT-Library.jpg">
+                    </div>
+                    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 footer-right-navs">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
+                                <ul class="offices">
+                                    <li class="title">
+                                        相关网站
+                                    </li>
+                                    <li>
+                                        <ul class="sub-list">
+                                            <li>
+                                                <a href="http://jwxt.nit.net.cn/default2.aspx">正方教育系统</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://i.mooc.chaoxing.com">超星尔雅课程</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://10.80.96.41/xgxt/">浙江高校数字图书馆</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://www.nit.net.cn/">NIT官网</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
+                                <ul class="offices">
+                                    <li class="title">常用网站</li>
+                                    <li>
+                                        <ul class="sub-list">
+                                            <li>
+                                                浙江大学图书馆 | OCR
+                                            </li>
+                                            <li>
+                                                宁波市数字图书馆
+                                            </li>
+                                            <li>
+                                                浙江高校数字图书馆
+                                            </li>
+                                            <li>
+                                                CADAL数字图书馆
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
+                                <ul class="offices">
+                                    <li class="title">联系方式</li>
+                                    <li>
+                                        <ul class="sub-list">
+                                            <li>
+                                                地址：宁波市高教园区钱湖南路1号
+                                            </li>
+                                            <li>
+                                                邮编：315100　QQ群：329503559
+                                            </li>
+                                            <li>
+                                                电话：0574-88229052
+                                            </li>
+                                            <li>
+                                                传真：0574-88229051
+                                            </li>
+                                            <li>
+                                                NIT图书与信息技术中心
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="container-fluid p-3 p-md-5">
+                    <ul class="bd-footer-links">
+                        <li><a href="https://github.com/hackhu2019/share">GitHub&nbsp;</a></li>
+                        <li><a href="https://blog.csdn.net/qq_38288847">CSDN&nbsp;</a></li>
+                        <li><a href="https://www.zhihu.com/people/hu-hao-77-99/columns">码农学习之路</a></li>
+                    </ul>
+                    <p class="NITcopyright">
+                        版权所有 © NIT图书馆　浙ICP备8888888号　制作维护：hack-hu　推荐使用chrome浏览器
+                    </p>
+                </div>
+            </div>
+        </footer>
+    <script  src="~/Scripts/bootstrap.min.js"></script>
+    <script  src="~/Scripts/bootstrap.js"></script>
+</body>
+</html>

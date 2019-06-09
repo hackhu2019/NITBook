@@ -1,0 +1,327 @@
+﻿@{
+    ViewBag.Title = "主页";
+}
+
+<main class="bd-masthead">
+    <div class="container">
+        @using (Html.BeginForm("Index", "Search", FormMethod.Post, new { @class = "searchBox col-sm-8 form-inline" }))
+        {
+            <input class="col-sm-8 form-control" type="search" placeholder="请输入书名/作者" aria-label="Search">
+            <button id="search" class="col-sm-2 btn btn-outline-success" type="submit">搜索</button>
+            <button class="col-sm-2 btn btn-outline-success" type="submit">高级搜索</button>
+        }
+        <div class="row align-items-center text-white">
+            <div class="col-4 mx-auto col-md-4 order-md-2">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="~/Content/image/bg.jpg" alt="First slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>图书馆概况</h5>
+                                <p>
+                                    经过16年的建设与发展，截至2017年底，图书馆馆藏总量达到144.5万册（件）
+                                </p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="~/Content/image/test-2.jpg" alt="Second slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>读者服务</h5>
+                                <p>
+                                    图书馆坚持“读者第一，服务至上”的办馆理念
+                                </p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="~/Content/image/test-3.jpg" alt="Third slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>用户教育</h5>
+                                <p>
+                                    编印了《图书馆手册》，每年度对全体新生开展入馆教育
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="info-cont col-md-4 order-md-1 text-center pr-md-5">
+                <h1 class="mb-3 bd-text-purple-bright">NIT 图书馆</h1>
+                <p class="lead">
+                    NIT 图书馆位于浙江大学宁波理工学院中部。
+                </p>
+                <p class="lead mb-4">
+                    浙江大学宁波理工学院图书馆于2001年7月开始筹建。
+                    <!-- 在馆舍建设期间，图书馆暂在学校南教学楼2楼开展工作。2002年9月现馆舍落成启用，馆舍建筑面积2.12万平方米，可容纳纸本藏书约100万册，阅览座位2050个。 -->
+                </p>
+                <div class="text-center">
+                    @Html.ActionLink("了解更多", "Info", "Home", null, new { @class = "btn btn-lg bg-dark text-light" })
+                </div>
+            </div>
+            <div class="col-md-4 order-md-3 text-center  pr-md-5">
+                <h1 class="mb-3 bd-text-purple-bright">我的图书馆</h1>
+                <p class="lead">
+                    图书馆提供读者个性化的服务空间,
+                </p>
+                <p class="lead mb-4">
+                    请输入读者证号和密码进入系统。登录后可以网上续借、帐号验证等
+                </p>
+                <div class="login-btn text-center">
+                    @Html.ActionLink("马上登陆", "Index", "Login",null ,new { @class = "btn btn-lg bg-dark text-light" })
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<div class="modal fade" id="news" tabindex="-1" role="dialog" aria-labelledby="title" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="title">馆藏建设</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <selection id="struct">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-12 ">
+                                <p class="lead">
+                                    经过16年的建设与发展，截至2017年底，图书馆馆藏总量达到144.5万册（件），
+                                    其中，纸质图书资料110.9万册，电子资料33.6万册（件）。生均年新增纸质图书4.6册，
+                                    超过了国家教育部对本科院校图书馆年新增图书的指标要求。
+                                </p>
+                                <p class="lead">
+                                    2005年7月，浙江大学校友郑润生先生和夫人钱可珍女士
+                                    向图书馆捐赠了价值170万元新台币的《近代中国史料丛刊》（台湾文海出版社）、《丛书集成续编》（台湾新文丰出版公司）、《台湾文献丛刊》（光盘版）共3629册。
+                                    为保存、利用好这批珍贵文献，图书馆建立了特藏室。为丰富特藏，陆续收藏《四库全书》（文渊阁）、《续修四库全书》、《四库未收书辑刊》、《四库禁毁书丛刊》、《民国图书集粹》等文献。
+                                    目前特藏室共有1.76万册珍贵文献，逐步形成了近代史和民国文献的特色馆藏。本馆与美国亚洲基金会和“中美之桥”建立了外文原版图书捐赠的长期合作关系，至今共收到外文原版捐赠图书约3.7万册。
+                                </p>
+                                <p class="lead">
+                                    为加强重点专业建设，按照“学院解决人员、场地、设施，图书馆负责文献资源建设和业务指导”的原则，先后建立了5个学院资料室，形成了以图书馆为主体、学院资料室为补充的学校文献资源保障体系。
+                                </p>
+                                <p class="lead">
+                                    图书馆致力于数字资源整合，全校师生可通过校园网共享浙江大学、宁波市数字图书馆的数字资源。
+                                    图书馆与中国高等教育文献保障系统（CALIS）、中国高校人文社会科学文献中心(CASHL)、国家科技图书文献中心（NSTL）、浙江省高校数字图书馆（ZADL）等国家级和省级文献系统建立了合作关系。
+                                    本校师生可利用的数字资源数量位居全国高校前列。通过资源共建共享，图书馆较好地满足了学校教学、科研对文献信息的需求，并为宁波市社会公众提供文献信息服务。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </selection>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mast container">
+    <div class="card-columns">
+        <div class="card">
+            <div class="card-body">
+                <h3>馆务动态</h3>
+                <hr>
+                <ul>
+                    <li class="col-sm-12">
+                        <a href="" data-toggle="modal" data-target="#news">
+                            关于开展“书香理工”阅读品牌创建申报工作的通知
+                        </a>
+                    </li>
+
+                    <li class="col-sm-12">
+                        <a href="" data-toggle="modal" data-target="#news">
+                            图书与信息技术中心办公会议纪要（2019年11号）
+                        </a>
+                    </li>
+
+                    <li class="col-sm-12">
+                        <a href="" data-toggle="modal" data-target="#news">
+                            2019春节开放通知
+                        </a>
+                    </li>
+
+                    <li class="col-sm-12">
+                        <a href="" data-toggle="modal" data-target="#news">
+                            每旬读书：风笑天的《社会研究方法》
+                        </a>
+                    </li>
+
+                    <li class="col-sm-12">
+                        <a href="" data-toggle="modal" data-target="#news">
+                            关于开展“图书馆期刊大派送与服务展”活动的通知
+                        </a>
+                    </li>
+
+                    <li class="col-sm-12">
+                        <a href="" data-toggle="modal" data-target="#news">
+                            “你选书，我付款”书城现场选书
+                        </a>
+                    </li>
+
+                    <li class="col-sm-12">
+                        <a href="" data-toggle="modal" data-target="#news">
+                            每旬读书：《你一学就会的思维导图》
+                        </a>
+                    </li>
+                    <li class="col-sm-12">
+                        <a href="" data-toggle="modal" data-target="#news">
+                            关于开展“书香理工”阅读品牌创建申报工作的通知
+                        </a>
+                    </li>
+
+                    <li class="col-sm-12">
+                        <a href="" data-toggle="modal" data-target="#news">
+                            图书与信息技术中心办公会议纪要（2019年11号）
+                        </a>
+                    </li>
+
+                    <li class="col-sm-12">
+                        <a href="" data-toggle="modal" data-target="#news">
+                            2019春节开放通知
+                        </a>
+                    </li>
+
+                    <li class="col-sm-12">
+                        <a href="" data-toggle="modal" data-target="#news">
+                            每旬读书：风笑天的《社会研究方法》
+                        </a>
+                    </li>
+
+                    <li class="col-sm-12">
+                        <a href="" data-toggle="modal" data-target="#news">
+                            关于开展“图书馆期刊大派送与服务展”活动的通知
+                        </a>
+                    </li>
+
+                    <li class="col-sm-12">
+                        <a href="" data-toggle="modal" data-target="#news">
+                            “你选书，我付款”书城现场选书
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="dataCard card ">
+            <div class="card-body">
+                <h3>实时数据</h3>
+                <hr />
+                <ul>
+                    <li class="col-sm-12">
+                        <em>521</em>人当天进馆
+                    </li>
+                    <li class="col-sm-12">
+                        <em>101</em>人当天借书
+                    </li>
+                    <li class="col-sm-12">
+                        <em>200</em>册书籍当天借出
+                    </li>
+                    <li class="col-sm-12">
+                        <em>150</em>册书籍当天还入
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h3>数字资源</h3>
+                <img class="card-img-top" src="~/Content/image/NIT-Library-1.jpg" alt="Card image cap">
+                <h6>常用数据库</h6>
+                <ul>
+
+                    <li class="col-sm-12">
+                        <a href="" data-toggle="modal" data-target="#news">
+                            CNKI中国学术期刊全文库[中国知网]
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="" data-toggle="modal" data-target="#news">
+                            维普网[维普全文期刊数据库]
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="" data-toggle="modal" data-target="#news">
+                            人大复印报刊资料[人大复印资料电子版]
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="" data-toggle="modal" data-target="#news">
+                            超星电子书（汇雅书世界）
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="" data-toggle="modal" data-target="#news">
+                            方正Apabi教参书
+                        </a>
+                    </li>
+
+                    <li class="col-sm-12">
+                        <a href="" data-toggle="modal" data-target="#news">
+                            读秀学术搜索
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" data-toggle="modal" data-target="#news">
+                            CADAL 百万册数字图书馆
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="dataCard card ">
+            <div class="card-body">
+                <h3>开放时间</h3>
+                <hr />
+                <ul>
+                    <li class="col-sm-12">
+                        <em>周一~周日</em>08:00 - 22:00
+                    </li>
+                    <li class="col-sm-12">
+                        <em>周五</em>08:00 - 22:00
+                    </li>
+                    <li class="col-sm-12">
+                        <em>节假日</em>5 月 1 日闭馆休息
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">特色专题</div>
+            <div class="card-body">
+                <img class="card-img-top" src="~/Content/image/smartCity.jpg" alt="Card image cap">
+                <p>
+                    智慧城市（英语：Smart
+                    City）是指利用各种信息技术或创新意念，集成城市的组成系统和服务，以提升资源运用的效率，优化城市管理和服务，以及改善市民生活质量。智慧城市把新一代信息技术充分运用在城市的各行各业之中的基于知识社会下一代创新（创新2.0）的城市信息化高级形态，实现信息化、工业化与城镇化深度融合，有助于缓解“大城市病”，提高城镇化质量，实现精细化和动态管理，并提升城市管理成效和改善市民生活质量。
+                </p>
+                <a href="#">了解更多</a>
+            </div>
+        </div>
+        <div class="card data">
+            <div class="card-body">
+                <ul>
+                    <li class="col-sm-12">
+                        <a href="#">月度数据</a>
+                    </li>
+                    <li class="col-sm-12">
+                        <a href="#">图书荐购</a>
+                    </li>
+                    <li class="col-sm-12">
+                        <a href="#">上架新书</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

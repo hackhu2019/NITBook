@@ -1,0 +1,144 @@
+﻿body {
+    height: 100vh;
+}
+
+header nav {
+    height: 10vh;
+}
+
+#main .carousel-item {
+    height: 90vh;
+}
+
+.shuffling {
+    position: absolute;
+    top: 25%;
+    right: 5%;
+    height: 20px;
+    width: 20px;
+}
+
+.shuffling li {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: grey;
+    z-index: 999;
+}
+
+#pre {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    height: 10px;
+    width: 10px;
+}
+
+.carousel-control-prev-icon {
+    transform: rotate(90deg);
+}
+
+#next {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    height: 10px;
+    width: 10px;
+}
+
+.carousel-control-next-icon {
+    transform: rotate(90deg);
+}
+
+.carousel-vertical .carousel-inner .carousel-item-next.carousel-item-left,
+.carousel-vertical .carousel-inner .carousel-item-prev.carousel-item-right {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
+
+.carousel-vertical .carousel-inner .active.carousel-item-left,
+.carousel-vertical .carousel-inner .carousel-item-prev {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+}
+
+.carousel-vertical .carousel-inner .active.carousel-item-right,
+.carousel-vertical .carousel-inner .carousel-item-next {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+}
+
+.carousel-caption img:hover {
+    animation-name: container;
+    /*动画的名称*/
+    transform-origin: center bottom;
+    /*设置动画旋转元素的基点为*/
+    cursor: pointer;
+}
+
+.animated {
+    animation-duration: 1s;
+    /*动画时间*/
+    animation-fill-mode: both;
+    /*播放后的状态*/
+}
+
+.animated {
+    animation-iteration-count: infinite;
+    /*动作循环的次数：infinite 无限循环*/
+}
+
+.animated {
+    animation-duration: 1s;
+    /*动画时间*/
+}
+
+.container {
+    background: #2D97DB;
+    width: 90%;
+    height: 90%;
+    padding: 100px;
+    margin: 20px auto;
+    font-family: "微软雅黑";
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    line-height: 90%;
+}
+
+.container:hover {
+    animation-name: container;
+    /*动画的名称*/
+    transform-origin: center bottom;
+    /*设置动画旋转元素的基点为：居中靠下*/
+    cursor: pointer;
+}
+
+@keyframes container {
+
+    0%,
+    100%,
+    20%,
+    50%,
+    80% {
+        transition-timing-function: cubic-bezier(0.215, .61, .355, 1);
+        /*贝塞尔曲线 ： X1 Y1 X2 Y2*/
+        transform: translate3d(0, 0, 0);
+        /*设置只在Z轴上移动*/
+    }
+
+    40%,
+    43% {
+        transition-timing-function: cubic-bezier(0.755, 0.50, 0.855, 0.060);
+        transform: translate3d(0, -35px, 0);
+    }
+
+    70% {
+        transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        transform: translate3d(0, -14px, 0);
+    }
+
+    90% {
+        transform: translate3d(0, -4px, 0);
+    }
+}

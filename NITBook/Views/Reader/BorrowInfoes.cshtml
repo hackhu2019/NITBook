@@ -1,0 +1,62 @@
+﻿@model IEnumerable<NITBook.Models.BorrowInfo>
+
+@{
+    ViewBag.Title = "借阅信息";
+    Layout = "~/Views/Shared/ReaderCenter.cshtml";
+}
+
+<h2>借阅信息</h2>
+<hr />
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.bookName)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.readerId)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.borrowTime)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.backTime)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.isBeyond)
+            </th>
+            <th scope="col">操作</th>
+        </tr>
+    </thead>
+@foreach (var item in Model) {
+    <tr>
+        <td scope="row">
+            @Html.DisplayFor(modelItem => item.bookName)
+        </td>
+        <td scope="row">
+            @Html.DisplayFor(modelItem => item.readerId)
+        </td>
+        <td scope="row">
+            @Html.DisplayFor(modelItem => item.borrowTime)
+        </td>
+        <td scope="row">
+            @Html.DisplayFor(modelItem => item.backTime)
+        </td>
+        <td scope="row">
+            @Html.DisplayFor(modelItem => item.isBeyond)
+        </td>
+        <td scope="row">
+            @if (item.backTime != null || item.isBeyond == true) {
+
+            }
+            else
+            {
+                @Html.ActionLink("还书", "returnBook", new { borrowId = item.borrow_Id },new {@class= "badge badge-pill badge-info" });
+            }
+             
+        </td>
+    </tr>
+}
+
+</table>

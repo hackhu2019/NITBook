@@ -1,0 +1,92 @@
+﻿
+@{
+    Layout = null;
+    ViewBag.Title="联系我们"
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>联系我们</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    @Styles.Render("~/Content/bootstrap.min.css")
+    @Styles.Render("~/Content/footer.css")
+
+    <link rel="shorcut icon" href="~/Content/image/NIT-Icon.jpg" type="image/x-icon" />
+
+</head>
+<body>
+    <header class="">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+            <a class="navbar-brand" href="#"><img src="~/Content/image/NIT-Library.jpg" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="text-center collapse navbar-collapse" id="navbarSupportedContent">
+                <ul id="navs" class="navbar-nav">
+                    <li class="nav-item">
+                        @Html.ActionLink("主页", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("书籍分类", "Sort", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("排行榜", "List", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            数字资源
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">维普网</a>
+                            <a class="dropdown-item" href="#">CNKI知网</a>
+                            <a class="dropdown-item" href="#">万方数据资源系统</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("NIT图书馆简介", "Info", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("联系我们", "Contact", "Home", new { area = "" }, new { @class = "nav-link active" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("登陆", "Index", "Login", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container text-center">
+        <br />
+        <br />
+        <h1 style="font-size:5rem;">联系我们</h1>
+        <p >
+                <address style="font-size:1.5rem;">
+                    <abbr>地址：</abbr>
+                    浙江大学宁波理工学院&nbsp;NIT 图书馆<br />
+                    <abbr>电话：</abbr>
+                    8888-8888-8888
+                </address>
+
+                <address style="font-size:1.5rem;">
+                    <strong>技术支持:</strong>   <a class="text-info" href="mailto:hack_hu@163.com">hack_hu@163.com</a><br />
+                    <strong>其他方式:</strong> <a class="text-info" href="mailto:hack_hu@qq.com">hack_hu@qq.com</a>
+                </address>
+        </p>
+    </div>
+    
+    
+
+    <script src="~/Scripts/jquery-3.3.1.slim.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</body>
+</html>

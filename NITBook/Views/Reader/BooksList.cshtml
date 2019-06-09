@@ -1,0 +1,127 @@
+﻿
+@{
+    ViewBag.Title = "图书列表";
+    Layout = "~/Views/Shared/ReaderCenter.cshtml";
+}
+
+<div class="row flex-xl-nowrap">
+    <div id="navs-Left" class="col-12 col-md-3">
+        <form action="">
+            <input type="search" name="search" class="form-control" id="search" placeholder="请输入要查找分类">
+        </form>
+        <nav class="collapse bd-links">
+            <div class="bd-toc-item">
+                <a>文学</a>
+            </div>
+            <div class="bd-toc-item"><a>流行</a></div>
+            <div class="bd-toc-item"><a>文化</a></div>
+            <div class="bd-toc-item"><a>生活</a></div>
+            <div class="bd-toc-item"><a>经营</a></div>
+            <div class="bd-toc-item"><a>科技</a></div>
+        </nav>
+    </div>
+    <div class="col-12 col-md-9">
+        <section>
+            <h2 id="" class="title">文学类</h2>
+            <p class="story">小说</p>
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-xl-3 mb-3 book">
+                    <a href="">
+                        <img class="img-thumbnail mb-3" src="~/Content/image/book/book1-1.jpg" alt="图书一" width="240"
+                             height="150">
+                        <h5 class="mb-1"> @Html.ActionLink("活着", "bookDetails",new { id = 1 })</h5>
+                    </a>
+                    <p class="text-muted">
+                        讲述了农村人福贵悲惨的人生遭遇。福贵本是个阔少爷，可他嗜赌如命，终于赌光了家业，一贫如洗。
+                    </p>
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-3 mb-3 book">
+                    <a href="">
+                        <img class="img-thumbnail mb-3" src="~/Content/image/book/3.jpg" alt="图书一" width="240" height="150
+                                    ">
+                        <h5 class="mb-1">解忧杂货店</h5>
+                    </a>
+                    <p class="text-muted">
+                        他们将困惑写成信投进杂货店，随即奇妙的事情竟不断发生。
+                        生命中的一次偶然交会，将如何演绎出截然不同的人生？
+                    </p>
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-3 mb-3 book">
+                    <a href="">
+                        <img class="img-thumbnail mb-3" src="~/Content/image/book/2.jpg" alt="图书一" width="240" height="150
+                                    ">
+                        <h5 class="mb-1">动物农场</h5>
+                    </a>
+                    <p class="text-muted">
+                        用动物对人类抗争后自建家园来再现前苏联的整个历史情形
+                    </p>
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-3 mb-3 book">
+                    <a href="">
+                        <img class="img-thumbnail mb-3" src="~/Content/image/book/14.jpg" alt="图书一" width="240" height="150
+                                    ">
+                        <h5 class="mb-1">钦口说：我眼中的德云社</h5>
+                    </a>
+                    <p class="text-muted">
+                        郭德纲、于谦、岳云鹏、高峰、孔云龙、孙越等德云社演员工作生活记录。
+                    </p>
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-3 mb-3 book">
+                    <a href="">
+                        <img class="img-thumbnail mb-3" src="~/Content/image/book/13.jpg" alt="图书一" width="240" height="150
+                                    ">
+                        <h5 class="mb-1">打黑</h5>
+                    </a>
+                    <p class="text-muted">
+                        深入第一线揭秘黑社台幕后的真实故事！黑色遮住的是阳光和色彩，黑社会蒙蔽的是正义和良知。
+                    </p>
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-3 mb-3 book">
+                    <a href="">
+                        <img class="img-thumbnail mb-3" src="~/Content/image/book/5.jpg" alt="图书一" width="240" height="150
+                                    ">
+                        <h5 class="mb-1">追风筝的人</h5>
+                    </a>
+                    <p class="text-muted">
+                        12岁的阿富汗富家少爷阿米尔与仆人哈桑情同手足。然而，在一场风筝比赛后，发生了一件悲惨不堪的事，阿米尔为自己的懦弱感到自责和痛苦，逼走了哈桑，不久，自己也跟随父亲逃往美国。
+                    </p>
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-3 mb-3 book">
+                    <a href="">
+                        <img class="img-thumbnail mb-3" src="~/Content/image/book/6.jpg" alt="图书一" width="240" height="150
+                                    ">
+                        <h5 class="mb-1">三体</h5>
+                    </a>
+                    <p class="text-muted">
+                        文化大革命如火如荼进行的同时。军方探寻外星文明的绝秘计划“红岸工程”取得了突破性进展。但在按下发射键的那一刻，历经劫难的叶文洁没有意识到，她彻底改变了人类的命运
+                    </p>
+                </div>
+                <div class="col-sm-6 col-md-4 col-xl-3 mb-3 book">
+                    <a href="">
+                        <img class="img-thumbnail mb-3" src="~/Content/image/book/7.jpg" alt="图书一" width="240" height="150
+                                    ">
+                        <h5 class="mb-1">白夜行</h5>
+                    </a>
+                    <p class="text-muted">
+                        只希望能手牵手在太阳下散步”，这个象征故事内核的绝望念想，有如一个美丽的幌子，随着无数凌乱、压抑、悲凉的故事片段像纪录片一样一一还原
+                    </p>
+                </div>
+            </div>
+        </section>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">上一页</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">下一页</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+

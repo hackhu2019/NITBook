@@ -1,0 +1,64 @@
+﻿@model NITBook.Models.BorrowInfo
+
+@{
+    ViewBag.Title = "删除借阅";
+    Layout = "~/Views/Shared/Mange.cshtml";
+}
+
+<h2>删除借阅信息</h2>
+
+<h3>确定要删除该条借阅信息?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.bookName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bookName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.readerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.readerId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.borrowTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.borrowTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.backTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.backTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isBeyond)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isBeyond)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-success" /> <hr />
+            @Html.ActionLink("返回借阅信息总览", "Index",null, new { @class = "badge badge-info" })
+        </div>
+    }
+</div>

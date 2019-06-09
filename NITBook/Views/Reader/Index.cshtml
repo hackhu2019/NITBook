@@ -1,0 +1,8 @@
+﻿@using NITBook.Models;
+@{
+    ViewBag.Title = "首页";
+    Layout = "~/Views/Shared/ReaderCenter.cshtml";
+}
+
+<h2>欢迎读者： @Html.FormatValue(((User)Session["user"]).userName,"") 登陆&nbsp; NIT&nbsp; 图书信息中心</h2>
+

@@ -1,0 +1,100 @@
+body {
+  height: 100vh;
+}
+#navs{
+  margin-left: auto;
+}
+#navs li{
+  margin-left: 15px;
+}
+.bd-masthead {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-image: url('./image/login-background2.jpg')
+}
+
+.searchBox {
+  background: #fff;
+  border-radius: 50px;
+  margin: 10px auto;
+
+}
+
+.searchBox button {
+  border: #fff;
+}
+.info-content{
+  background-color: #FFA51C;
+}
+
+
+.login-btn a {
+  border: #fff 1px solid;
+  border-radius: 50px;
+}
+
+.card-content {
+  padding: 3rem;
+}
+
+.mast .card-columns {
+  padding: 3rem;
+  /* border: none !important; */
+}
+
+.card img {
+  transition: 0.3s;
+}
+
+.card img:hover {
+  transform: scale(1.1);
+}
+
+.card ul {
+  padding-left: 0px;
+  margin: 0;
+  padding-top: 5px;
+}
+
+.card ul li {
+  overflow: hidden;
+  font-size: 13px;
+  padding: 0;
+  margin: 0;
+  line-height: 18px;
+  transition: 0.3s;
+}
+
+.card ul li:hover {
+  padding-left: 5px;
+}
+
+.card ul li a {
+  display: block;
+  height: 34px;
+  white-space: nowrap;
+  padding-left: 24px;
+  text-overflow: ellipsis;
+  background: url(image/icon.png) no-repeat 0px 2px;
+}
+
+.card ul li em {
+  margin-right: 10px;
+  font-size: 20px;
+  color: #3e54c0;
+  position: relative;
+}
+
+.dataCard ul li {
+  line-height: 50px;
+  margin-left: 18px;
+  border-bottom: 1px #f3f3f3 solid;
+}
+.data ul li {
+  margin-top: 10px;
+  border-bottom: 1px #f3f3f3 solid;
+}
+.data ul li a{
+  font-size: 20px;
+  background: url(image/icon2.png) no-repeat 200px 2px;
+}

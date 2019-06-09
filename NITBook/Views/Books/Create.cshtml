@@ -1,0 +1,101 @@
+﻿@model NITBook.Models.Book
+
+@{
+    ViewBag.Title = "创建图书";
+    Layout = "~/Views/Shared/Mange.cshtml";
+}
+
+@using (Html.BeginForm("Create","Books",FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h2>新增图书</h2>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.bookID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.bookName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.bookName, new { htmlAttributes = new { @class = "form-control", @placeholder = "请输入书名" } })
+                @Html.ValidationMessageFor(model => model.bookName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.imageUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                 @Html.EditorFor(model => model.imageUrl, new { htmlAttributes = new { @class = "form-control", @placeholder = "请上传图书图片",@type= "file" } })
+                @Html.ValidationMessageFor(model => model.imageUrl, "", new { @class = "text-danger" })
+            </div>
+            <span>@ViewBag.Status</span>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ISBN, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ISBN, new { htmlAttributes = new { @class = "form-control", @placeholder = "请输入图书ISBN" } })
+                @Html.ValidationMessageFor(model => model.ISBN, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.publicName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.publicName, new { htmlAttributes = new { @class = "form-control", @placeholder = "请输入出版社名字" } })
+                @Html.ValidationMessageFor(model => model.publicName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.publicTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.publicTime, new { htmlAttributes = new { @class = "form-control", @placeholder = "请输入出版时间例：2018/01/01" } })
+                @Html.ValidationMessageFor(model => model.publicTime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.author, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.author, new { htmlAttributes = new { @class = "form-control", @placeholder = "请输入作者姓名" } })
+                @Html.ValidationMessageFor(model => model.author, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sort, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sort, new { htmlAttributes = new { @class = "form-control", @placeholder = "请输入图书类别" } })
+                @Html.ValidationMessageFor(model => model.sort, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.number, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.number, new { htmlAttributes = new { @class = "form-control", @placeholder = "请输入图书库存" } })
+                @Html.ValidationMessageFor(model => model.number, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.info, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.info, 10, 80, new { @class = "form-control", @placeholder = "请输入图书简介" })
+                @Html.ValidationMessageFor(model => model.info, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="创建" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+    
+    <div>
+    @Html.ActionLink("返回总览", "Index", new { }, new { @class = "badge badge-info" })
+</div>

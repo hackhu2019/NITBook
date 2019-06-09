@@ -1,0 +1,86 @@
+﻿@model IEnumerable<NITBook.Models.Book>
+
+@{
+    ViewBag.Title = "图书总览";
+    Layout = "~/Views/Shared/Mange.cshtml";
+}
+
+
+    <p>
+        @Html.ActionLink("创建新书", "Create", new { area = " " }, new { @class = "badge badge-info" })
+    </p>
+    <table class="table">
+        <thead class="thead-dark text-center">
+            <tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.bookName)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.ISBN)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.publicTime)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.author)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.sort)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.number)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.borrowNumber)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.info)
+                </th>
+                <th scope="col">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td scope="row">
+                        @Html.DisplayFor(modelItem => item.bookName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ISBN)
+                    </td>
+                    <td>
+                        @Html.FormatValue(item.publicTime, "{0:yyyy-MM-dd}")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.author)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sort)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.number)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.borrowNumber)
+                    </td>
+                    <td>
+                        @{
+                            if (item.info != null && item.info.Length > 50)
+                            { @item.info.Substring(0, 50);@Html.Encode("...");
+                            }
+                            else
+                            {
+                                @item.info;
+                            }
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("编辑", "Edit", new { id = item.bookID }, new { @class = "badge badge-info" })
+                        @Html.ActionLink("详情", "Details", new { id = item.bookID }, new { @class = "badge badge-info" })
+                        @Html.ActionLink("删除", "Delete", new { id = item.bookID }, new { @class = "badge badge-info" })
+                    </td>
+                </tr>
+                            }
+        </tbody>
+    </table>

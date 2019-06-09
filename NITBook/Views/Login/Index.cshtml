@@ -1,0 +1,92 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录--NIT图书馆</title>
+    <link rel="icon" href="~/Content/image/NIT-Icon.jpg">
+    @Styles.Render("~/Content/bootstrap.min.css")
+    @Styles.Render("~/Content/footer.css")
+    @Styles.Render("~/Content/login.css")
+
+</head>
+
+<body>
+    <div class="container-fluid justify-content-center">
+        <!-- <video autoplay="autoplay" loop="loop">
+            <source src="1.mp4" type="video/mp4">
+        </video> -->
+        <div id="login" class="card mx-auto text-center text-white">
+            <div class="text-center">
+                <img width="120" height="120" class="rounded mt-5" src="~/Content/image/header-icon.jpg" alt="">
+            </div>
+            <div class="card-body mt-3">
+                @using (Ajax.BeginForm("Login", "Login", null, new AjaxOptions { HttpMethod = "post", OnSuccess = "login" }, new { @class = "form-group" }))
+                {
+                    <input id="userName" type="text" required="" class="col-sm-11 mx-auto form-control text-center" name="userName" placeholder="请输入用户名" autocomplete="off">
+                    <input id="pwd" type="password" required="" class="col-sm-11 mx-auto form-control text-center mt-5" name="password" placeholder="请输入密码" autocomplete="off">
+                    <input id="submit" type="submit" class="btn btn-success col-sm-5 mt-5" value="登录">
+                    <a class="sign-up" href="" data-toggle="modal" data-target="#registered">没有账号？</a>
+                }
+
+            </div>
+        </div>
+
+        <div class="modal fade bg-dark" id="registered" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content bg-white">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">注册 NIT 图书馆账号</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        @using (Ajax.BeginForm("Register", "Login", null, new AjaxOptions { HttpMethod = "post", OnSuccess = "register" }, new { @class = "form-group" }))
+                        {
+                            <div class="text-center mb-4">
+                                <img src="~/Content/image/header-icon.jpg" width="72" height="72">
+                                <h1 class="h3 font-weight-normal">注册</h1>
+                            </div>
+                            <div class="form-label-group">
+                                <input type="text" name="userNameinput" id="userNameinput" placeholder="用户名"
+                                       class="form-control" required autofocus>
+                                <label for="userNameinput">6-12 位有效字符</label>
+                            </div>
+                            <div class="form-label-group">
+                                <input type="password" name="userPwdinput" id="userPwdinput" placeholder="密码"
+                                       class="form-control" required autofocus>
+                                <label for="userPwdinput">12 位有效字符</label>
+                            </div>
+                            <div class="form-label-group">
+                                <input id="userPwdinput2" type="password" placeholder="确认密码"
+                                       class="form-control" required autofocus>
+                                <label for="userPwdinput">两次密码须一致</label>
+                            </div>
+                            <button class="btn btn-lg btn-block btn-dark" type="submit">提交</button>
+                        }
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/NIT/checkError.js"></script>
+</body>
+
+</html>

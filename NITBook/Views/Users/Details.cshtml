@@ -1,0 +1,58 @@
+﻿@model NITBook.Models.User
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Mange.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.userName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoginTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoginTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.createTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isAdmin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isAdmin)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Ajax.ActionLink("编辑信息", "Edit", new { id = Model.Id },null, new { @class = "badge badge-info" }) 
+</p>

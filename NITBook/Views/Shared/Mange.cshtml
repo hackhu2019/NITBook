@@ -1,0 +1,110 @@
+﻿@using NITBook.Models;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@ViewBag.Title--NIT系统管理</title>
+    @Styles.Render("~/layui/css/layui.css")
+    @Styles.Render("~/Content/bootstrap.min.css")
+    @Styles.Render("~/Content/detail.css")
+</head>
+
+<body>
+
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo">NIT 图书管理系统</div>
+
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <img src="~/Content/image/header-icon.jpg" class="layui-nav-img">
+                        @ViewBag.name
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            @Html.ActionLink("基本资料", "Details", "Users", new { id = ((User)Session["user"]).Id }, null)
+                        <dd>
+                            @Html.ActionLink("安全设置", "Edit", "Users", new { id = ((User)Session["user"]).Id }, null)
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">@Html.ActionLink("退出系统", "Cancellation", "NITMange")</li>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">图书类别管理</a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                                @Html.ActionLink("图书类别总览", "Index", "Sort")
+                            </dd>
+                            <dd>@Html.ActionLink("图书类别新增", "Create", "Sort")</dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">图书管理</a>
+                        <dl class="layui-nav-child">
+                            <dd>@Html.ActionLink("图书搜索", "Index", "Search")</dd>
+                            <dd>@Html.ActionLink("图书总览", "Index", "Books")</dd>
+                            <dd>@Html.ActionLink("图书新增", "Create", "Books")</dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">用户信息管理</a>
+                        <dl class="layui-nav-child">
+                            <dd>@Html.ActionLink("用户总览", "Index", "Users")</dd>
+                            <dd>@Html.ActionLink("用户创建", "Create", "Users")</dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">借阅信息管理</a>
+                        <dl class="layui-nav-child">
+                            <dd>@Html.ActionLink("借阅信息总览", "Index", "BorrowInfoes")</dd>
+                            <dd>@Html.ActionLink("借阅信息新增创建", "Create", "BorrowInfoes")</dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item"><a href="">数据统计</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <div style="padding: 15px;">
+                @RenderBody()
+            </div>
+        </div>
+
+        <div class="layui-footer">
+            <!-- 底部固定区域 -->
+            © hack-hu NIT 图书管理系统 2019
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.3.1.slim.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~//layui/layui.all.js"></script>
+    <script src="~/Scripts/NIT/check.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+        //JavaScript代码区域
+        layui.use('element', function () {
+            var element = layui.element;
+
+        });
+    </script>
+</body>
+
+</html>

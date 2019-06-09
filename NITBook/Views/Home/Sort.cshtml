@@ -1,0 +1,313 @@
+﻿
+@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>图书分类页</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    @Styles.Render("~/Content/bootstrap.min.css")
+    @Styles.Render("~/Content/footer.css")
+    @Styles.Render("~/Content/sort.css")
+
+    <link rel="shorcut icon" href="~/Content/image/NIT-Icon.jpg" type="image/x-icon" />
+
+</head>
+
+<body>
+    <header class="">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+            <a class="navbar-brand" href="#"><img src="~/Content/image/NIT-Library.jpg" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="text-center collapse navbar-collapse" id="navbarSupportedContent">
+                <ul id="navs" class="navbar-nav">
+                    <li class="nav-item">
+                        @Html.ActionLink("主页", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item active">
+                        @Html.ActionLink("书籍分类", "Sort", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("排行榜", "List", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            数字资源
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">维普网</a>
+                            <a class="dropdown-item" href="#">CNKI知网</a>
+                            <a class="dropdown-item" href="#">万方数据资源系统</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("NIT图书馆简介", "Info", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("联系我们", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("登陆", "Index", "Login", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="~/Content/image/show/show5.jpg" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="~/Content/image/show/show3.jpg" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="~/Content/image/show/show4.jpg" alt="Third slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">上一页</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">下一页</span>
+            </a>
+        </div>
+        <div class="row flex-xl-nowrap">
+            <div id="navs-Left" class="col-12 col-md-3">
+                <form action="">
+                    <input type="search" name="search" class="form-control" id="search" placeholder="请输入要查找分类">
+                </form>
+                <nav class="collapse bd-links">
+                    <div class="bd-toc-item">
+                        <a>文学</a>
+                    </div>
+                    <div class="bd-toc-item"><a>流行</a></div>
+                    <div class="bd-toc-item"><a>文化</a></div>
+                    <div class="bd-toc-item"><a>生活</a></div>
+                    <div class="bd-toc-item"><a>经营</a></div>
+                    <div class="bd-toc-item"><a>科技</a></div>
+                </nav>
+            </div>
+            <div class="col-12 col-md-9">
+                <section>
+                    <h2 id="" class="title">文学类</h2>
+                    <p class="story">小说</p>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4 col-xl-3 mb-3 book">
+                            <a href="">
+                                <img class="img-thumbnail mb-3" src="~/Content/image/book/book1-1.jpg" alt="图书一" width="240"
+                                     height="150">
+                                <h5 class="mb-1"> @Html.ActionLink("活着","Details","Books",new {id=1 },null)</h5>
+                            </a>
+                            <p class="text-muted">
+                                讲述了农村人福贵悲惨的人生遭遇。福贵本是个阔少爷，可他嗜赌如命，终于赌光了家业，一贫如洗。
+                            </p>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-xl-3 mb-3 book">
+                            <a href="">
+                                <img class="img-thumbnail mb-3" src="~/Content/image/book/3.jpg" alt="图书一" width="240" height="150
+                                    ">
+                                <h5 class="mb-1">解忧杂货店</h5>
+                            </a>
+                            <p class="text-muted">
+                                他们将困惑写成信投进杂货店，随即奇妙的事情竟不断发生。
+                                生命中的一次偶然交会，将如何演绎出截然不同的人生？
+                            </p>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-xl-3 mb-3 book">
+                            <a href="">
+                                <img class="img-thumbnail mb-3" src="~/Content/image/book/2.jpg" alt="图书一" width="240" height="150
+                                    ">
+                                <h5 class="mb-1">动物农场</h5>
+                            </a>
+                            <p class="text-muted">
+                                用动物对人类抗争后自建家园来再现前苏联的整个历史情形
+                            </p>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-xl-3 mb-3 book">
+                            <a href="">
+                                <img class="img-thumbnail mb-3" src="~/Content/image/book/14.jpg" alt="图书一" width="240" height="150
+                                    ">
+                                <h5 class="mb-1">钦口说：我眼中的德云社</h5>
+                            </a>
+                            <p class="text-muted">
+                                郭德纲、于谦、岳云鹏、高峰、孔云龙、孙越等德云社演员工作生活记录。
+                            </p>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-xl-3 mb-3 book">
+                            <a href="">
+                                <img class="img-thumbnail mb-3" src="~/Content/image/book/13.jpg" alt="图书一" width="240" height="150
+                                    ">
+                                <h5 class="mb-1">打黑</h5>
+                            </a>
+                            <p class="text-muted">
+                                深入第一线揭秘黑社台幕后的真实故事！黑色遮住的是阳光和色彩，黑社会蒙蔽的是正义和良知。
+                            </p>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-xl-3 mb-3 book">
+                            <a href="">
+                                <img class="img-thumbnail mb-3" src="~/Content/image/book/5.jpg" alt="图书一" width="240" height="150
+                                    ">
+                                <h5 class="mb-1">追风筝的人</h5>
+                            </a>
+                            <p class="text-muted">
+                                12岁的阿富汗富家少爷阿米尔与仆人哈桑情同手足。然而，在一场风筝比赛后，发生了一件悲惨不堪的事，阿米尔为自己的懦弱感到自责和痛苦，逼走了哈桑，不久，自己也跟随父亲逃往美国。
+                            </p>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-xl-3 mb-3 book">
+                            <a href="">
+                                <img class="img-thumbnail mb-3" src="~/Content/image/book/6.jpg" alt="图书一" width="240" height="150
+                                    ">
+                                <h5 class="mb-1">三体</h5>
+                            </a>
+                            <p class="text-muted">
+                                文化大革命如火如荼进行的同时。军方探寻外星文明的绝秘计划“红岸工程”取得了突破性进展。但在按下发射键的那一刻，历经劫难的叶文洁没有意识到，她彻底改变了人类的命运
+                            </p>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-xl-3 mb-3 book">
+                            <a href="">
+                                <img class="img-thumbnail mb-3" src="~/Content/image/book/7.jpg" alt="图书一" width="240" height="150
+                                    ">
+                                <h5 class="mb-1">白夜行</h5>
+                            </a>
+                            <p class="text-muted">
+                                只希望能手牵手在太阳下散步”，这个象征故事内核的绝望念想，有如一个美丽的幌子，随着无数凌乱、压抑、悲凉的故事片段像纪录片一样一一还原
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">上一页</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">下一页</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+    </div>
+    <footer class="bd-footer text-muted bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                    <img src="~/Content/image/NIT-Library.jpg">
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 footer-right-navs">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
+                            <ul class="offices">
+                                <li class="title">
+                                    相关网站
+                                </li>
+                                <li>
+                                    <ul class="sub-list">
+                                        <li>
+                                            <a href="http://jwxt.nit.net.cn/default2.aspx">正方教育系统</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://i.mooc.chaoxing.com">超星尔雅课程</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://10.80.96.41/xgxt/">浙江高校数字图书馆</a>
+                                        </li>
+                                        <li>
+                                            <a href="http://www.nit.net.cn/">NIT官网</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
+                            <ul class="offices">
+                                <li class="title">常用网站</li>
+                                <li>
+                                    <ul class="sub-list">
+                                        <li>
+                                            浙江大学图书馆 | OCR
+                                        </li>
+                                        <li>
+                                            宁波市数字图书馆
+                                        </li>
+                                        <li>
+                                            浙江高校数字图书馆
+                                        </li>
+                                        <li>
+                                            CADAL数字图书馆
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
+                            <ul class="offices">
+                                <li class="title">联系方式</li>
+                                <li>
+                                    <ul class="sub-list">
+                                        <li>
+                                            地址：宁波市高教园区钱湖南路1号
+                                        </li>
+                                        <li>
+                                            邮编：315100　QQ群：329503559
+                                        </li>
+                                        <li>
+                                            电话：0574-88229052
+                                        </li>
+                                        <li>
+                                            传真：0574-88229051
+                                        </li>
+                                        <li>
+                                            NIT图书与信息技术中心
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="container-fluid p-3 p-md-5">
+                <ul class="bd-footer-links">
+                    <li><a href="https://github.com/hackhu2019/share">GitHub&nbsp;</a></li>
+                    <li><a href="https://blog.csdn.net/qq_38288847">CSDN&nbsp;</a></li>
+                    <li><a href="https://www.zhihu.com/people/hu-hao-77-99/columns">码农学习之路</a></li>
+                </ul>
+                <p class="NITcopyright">
+                    版权所有 © NIT图书馆　浙ICP备8888888号　制作维护：hack-hu　推荐使用chrome浏览器
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script src="~/Scripts/jquery-3.3.1.slim.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</body>
+</html>
+
+
+

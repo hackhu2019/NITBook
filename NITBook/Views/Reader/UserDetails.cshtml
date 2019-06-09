@@ -1,0 +1,62 @@
+﻿@model NITBook.Models.User
+
+@{
+    ViewBag.Title = "账号详情";
+    Layout = "~/Views/Shared/ReaderCenter.cshtml";
+}
+
+<h2>用户详情</h2>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.userName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoginTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoginTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.createTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isAdmin)
+        </dt>
+
+        <dd>
+            @if (Model.isAdmin==true) {
+                @("具备管理员权限");
+
+            }
+            else {
+                @("不具备管理员权限");
+            }
+        </dd>
+
+    </dl>
+</div>
+
+<p>
+    @Ajax.ActionLink("编辑信息", "EditInfo", new { id = Model.Id }, null, new { @class = "badge badge-info" })
+</p>

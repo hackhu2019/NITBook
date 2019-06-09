@@ -1,0 +1,64 @@
+﻿@model NITBook.Models.User
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Mange.cshtml";
+}
+
+<h2>删除用户信息</h2>
+
+<h3>确定要删除该条用户信息吗?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.userName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoginTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoginTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.createTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.createTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isAdmin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isAdmin)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="确认删除" class="btn btn-success" /> <hr />
+            @Html.ActionLink("返回列表", "Index",null, new { @class = "badge badge-info" })
+        </div>
+    }
+</div>

@@ -1,0 +1,15 @@
+﻿.list-group ul{
+    list-style: none;
+
+}
+.card strong{
+    font-size: 1rem;
+    color: #373945;
+}
+.card strong:hover{
+    padding-left: 5px;
+    transition: 0.3s;
+}
+.info h2 a{
+    color: #859CAE;
+}

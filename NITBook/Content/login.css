@@ -1,0 +1,52 @@
+﻿*{  
+    margin: 0px;  
+    padding: 0px;  
+}  
+body{
+    background: url('./image/login-background2.jpg');
+}
+
+.modal-content {
+    border-radius: 1.5rem !important;
+    box-shadow: 0px 30px 60px -5px #ffffff;
+}
+#login {
+    border-radius: 25px;
+    background-image: linear-gradient( 135deg, #65FDF0 10%, #1D6FA3 100%);
+    width: 500px;
+    margin-top:10%;
+    box-shadow: 0px 30px 60px -5px #000;
+}
+/*#login img{
+    border-radius: 50%;
+}*/
+
+.modal-content {
+    border-radius: 1.5rem !important;
+    box-shadow: 0px 30px 60px -5px #ffffff;
+}
+
+#userName,
+#pwd {
+    border-radius: 20px;
+    height: 50px;
+    width:250px;
+}
+#userName:focus,
+#pwd:focus{
+    width:350px;
+    transition: 0.5s ;
+}
+#userName:hover,
+#pwd:hover{
+    border-color: #465EFB;
+}
+#submit {
+    border-radius: 20px;
+    height: 50px;
+}
+.sign-up{
+    display: block;
+    color: #465EFB;
+    text-decoration: none;
+}

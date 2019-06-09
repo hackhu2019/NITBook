@@ -1,0 +1,36 @@
+﻿.evaluate {
+    height: 24px;
+    width: 100%;
+}
+
+.evaluate-text {
+    float: left;
+    margin-right: 5px;
+}
+
+.rating {
+    float: left;
+    height: 10px;
+    margin-top: 6px;
+    background: #ffd596 none repeat scroll 0 0;
+}
+
+.tags span {
+    background-color: #f5f5f5;
+
+}
+
+.tags span a {
+    color: #37A;
+    padding: 5px;
+}
+
+.tags span :hover {
+    background-color: #918E87;
+    text-decoration: none;
+}
+
+#comment li:hover{
+    background-color: #E5E1D2;
+    transition: .5s linear;
+}

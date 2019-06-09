@@ -1,0 +1,121 @@
+﻿@model NITBook.Models.Book
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Mange.cshtml";
+}
+
+    <main class="container">
+        <ul class="list-group mb-2">
+            <li class="list-group-item mb-2">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src=@Model.imageUrl class="img-thumbnail">
+                    </div>
+                    <div class="info col-md-4 border-right">
+                        <h2><a class="text-dark" href="">@Html.DisplayFor(model => model.bookName)</a></h2>
+                        <span>作者：@Html.DisplayFor(model => model.author) </span><br>
+                        <span>出版社：@Html.DisplayFor(model => model.publicName) </span><br />
+                        <span>出版时间：@Model.publicTime.ToString("yyyy-MM-dd")</span><br />
+                        <span>图书馆库存：@Html.DisplayFor(model => model.number) 本</span><br />
+                        <span>已借出数量：@Html.DisplayFor(model => model.borrowNumber) 本</span><br />
+                        <span>ISBN: @Html.DisplayFor(model => model.ISBN)</span>
+
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <h5 class="">豆瓣评分</h5>
+                        <strong style="font-size:2em;">9.3</strong><br>
+                        <div class="evaluate">
+                            <span class="evaluate-text">5星</span>
+                            <div class="rating" style="width:164px;"></div>
+                        </div>
+                        <div class="evaluate">
+                            <span class="evaluate-text">4星</span>
+                            <div class="rating" style="width:64px;"></div>
+                        </div>
+                        <div class="evaluate">
+                            <span class="evaluate-text">3星</span>
+                            <div class="rating" style="width:34px;"></div>
+                        </div>
+                        <div class="evaluate">
+                            <span class="evaluate-text">2星</span>
+                            <div class="rating" style="width:14px;"></div>
+                        </div>
+                        <div class="evaluate">
+                            <span class="evaluate-text">1星</span>
+                            <div class="rating" style="width:4px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <h2>内容简介</h2>
+                <div class="indent">
+                    
+                    <p>@Html.DisplayFor(model => model.info)</p>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <h2>作者简介</h2>
+                <div class="indent">
+                    <p>余华，1960年出生，1983年开始写作。至今已经出版长篇小说4部，中短篇小说集6部，随笔集4部。主要作品有《兄弟》《活着》《许三观卖血记》《在细雨中呼喊》等。其作品已被翻译成20多种语言在美国、英国、法国、德国、意大利、西班牙、荷兰、瑞典、挪威、希腊、俄罗斯、保加利亚、匈牙利、捷克、塞尔维亚、斯洛伐克、波兰、巴西、以色列、日本、韩国、越南、泰国和印度等国出版。曾获意大利格林扎纳·卡佛文学奖（1998年）、法国文学和艺术骑士勋章（2004年）、中华图书特殊贡献奖（2005年）、法国国际信使外国小说奖（2008年）等。</p>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <h2>目录</h2>
+                <div class="indent">
+                    <p>中文自序</p>
+                    <p>韩文自序</p>
+                    <p>日文自序</p>
+                    <p>英文自序</p>
+                    <p>活着</p>
+                </div>
+            </li>
+            <li class="list-group-item tags">
+                <h2>常用标签</h2>
+                <a href="#" class="badge badge-success">余华</a>
+                <a href="#" class="badge badge-success">活着</a>
+                <a href="#" class="badge badge-success">人性</a>
+                <a href="#" class="badge badge-success">人生</a>
+                <a href="#" class="badge badge-success">中国文学</a>
+                <a href="#" class="badge badge-success">小说</a>
+                <a href="#" class="badge badge-success">社会</a>
+                <a href="#" class="badge badge-success">当代文学</a>
+            </li>
+            <li class="list-group-item">
+                <h2>书评</h2>
+                <ul id="comment" class="list-group">
+                    <li class="list-group-item mb-1">
+                        <span class="comment-info">
+                            <a href="">沈邵君</a>
+                            <span> 2014-11-18</span>
+                        </span>
+                        <p class="mt-1">作为一个词语，“活着”在我们中国的语言中充满了力量，它的力量不是来自于喊叫，也不是来自于进攻，而是忍受，去忍受生命赋予我们的责任，去忍受现实给予我们的幸福和苦难、无聊和平庸。</p>
+                    </li>
+                    <li class="list-group-item mb-1">
+                        <span class="comment-info">
+                            <a href="">黑点小虎</a>
+                            <span>2016-01-30</span>
+                        </span>
+                        <p class="mt-1">第一次拜读余华的作品，他在我心中并非大家，但《活着》是唯一让我看了鼻酸的文字。 　　我想象得到福贵的样子，岁月鞭打在他脸上留下沟壑般的皱纹，黄而黑亮的肤色，充血发黄的“眼白”包围着的黑滴滴的瞳孔，似乎是典型的穷苦农民代表。嗯，还有一只瘦骨嶙峋伴其左右的老牛。 　　我能想到的仅仅如此，而我想象不出在经历了这么多不幸后，一个人该以怎样的姿态再活下去。福贵身边的人一个接一个以惨烈的方式离开，旧伤未愈又添... </p>
+                    </li>
+                    <li class="list-group-item mb-1">
+                        <span class="comment-info">
+                            <a href="">JoJo</a>
+                            <span>2015-08-13</span>
+                        </span>
+                        <p class="mt-1">工作之余，忙碌的生活让我们有时候懈怠了学习和休闲，拾起久而未读的书本，看见这本《活着》，我想最好的诠释了现在的疑惑和生活。 《活着》这本书是余华的代表作，曾经被著名导演张艺谋改拍成同名电影，说的是地主少爷福贵嗜赌成性，终于赌光了家业，一贫如洗。穷困之中的福贵因为母亲生病前去求医，没想到半路上被国民党部队抓了壮丁，后被解放军所俘虏，回到家乡他才知道母亲已经去世，妻子家珍含辛茹苦带大了一双儿女，但女儿..</p>
+                    </li>
+                    <li class="list-group-item mb-1">
+                        <span class="comment-info">
+                            <a href="">|′空絔</a>
+                            <span>2013-04-03 </span>
+                        </span>
+                        <p class="mt-1">“今天有庆、二喜耕了一亩，家珍、凤霞耕了也有七八分田，苦根还小都耕了半亩。你嘛，耕了多少我就不说了，说出来你会觉得我是要羞你。话还得说回来，你年纪大了，能耕这么些田也是尽心尽力了。”  </p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </main>
+    
+    

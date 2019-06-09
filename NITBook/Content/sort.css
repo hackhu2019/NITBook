@@ -1,0 +1,60 @@
+﻿body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.carousel-inner {
+    height: 500px !important;
+}
+
+#navs-Left {
+    border-right: 1px solid;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+#search {
+    display: inline-block;
+    margin: 10px auto;
+}
+
+.bd-links {
+    display: block !important;
+    border-top: 1px solid;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.bd-toc-item a {
+    display: block;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+}
+
+.bd-toc-item ul {
+    display: block;
+}
+
+.bd-toc-item .nav>li>a {
+    display: block;
+    padding: 0.5rem 1.5rem;
+    font-size: 90%;
+}
+
+.bd-toc-item>a:hover {
+    background: #0c93e4;
+    box-shadow: 13px 0px #126CA1 inset;
+    transition: box-shadow .3s linear, text-indent .3s linear;
+    text-indent: 11px;
+}
+
+.title {
+    margin-top: 1em;
+}
+
+.book {
+    background-color: #fffffb;
+}
+.book p{
+    padding-right: 12px;
+}

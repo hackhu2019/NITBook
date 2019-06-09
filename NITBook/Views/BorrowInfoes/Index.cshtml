@@ -1,0 +1,59 @@
+﻿@model IEnumerable<NITBook.Models.BorrowInfo>
+
+@{
+    ViewBag.Title = "借阅总览";
+    Layout = "~/Views/Shared/Mange.cshtml";
+}
+
+<h2>借阅管理</h2>
+
+<p>
+    @Html.ActionLink("创建借阅记录", "Create", new { area = " " }, new { @class = "badge badge-info" })
+</p>
+<table class="table">
+    <thead class="thead-dark text-center">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.bookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.readerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.borrowTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.backTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isBeyond)
+            </th>
+            <th scope="col">操作</th>
+        </tr>
+    </thead>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.bookName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.readerId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.borrowTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.backTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isBeyond)
+        </td>
+        <td>
+            @Html.ActionLink("编辑", "Edit", new { id=item.borrow_Id },new { @class = "badge badge-info" }) |
+            @Html.ActionLink("详情", "Details", new { id=item.borrow_Id },new { @class = "badge badge-info" }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.borrow_Id }, new { @class = "badge badge-info" })
+        </td>
+    </tr>
+}
+
+</table>

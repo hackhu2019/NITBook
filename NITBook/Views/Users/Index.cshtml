@@ -1,0 +1,59 @@
+﻿@model IEnumerable<NITBook.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Mange.cshtml";
+}
+
+<h2>用户信息管理</h2>
+
+<p>
+    @Html.ActionLink("创建新用户", "Create", new { area = " " }, new { @class = "badge badge-info" })
+</p>
+<table class="table">
+    <thead class="thead-dark text-center">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.userName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoginTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.createTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isAdmin)
+            </th>
+            <th>操作</th>
+        </tr>
+    </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.userName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LoginTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.createTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isAdmin)
+                </td>
+                <td>
+                    @Html.ActionLink("编辑", "Edit", new { id = item.Id }, new { @class = "badge badge-info" })
+                    @Html.ActionLink("删除", "Delete", new { id = item.Id }, new { @class = "badge badge-info" })
+                </td>
+            </tr>
+        }
+
+</table>

@@ -1,0 +1,58 @@
+﻿@model NITBook.Models.BorrowInfo
+
+@{
+    ViewBag.Title = "借阅详情";
+    Layout = "~/Views/Shared/Mange.cshtml";
+}
+
+<h2>借阅详情</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.bookName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bookName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.readerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.readerId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.borrowTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.borrowTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.backTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.backTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isBeyond)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isBeyond)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Ajax.ActionLink("编辑", "Edit", new { id = Model.borrow_Id }, null, new { @class = "badge badge-info" }) |
+    @Html.ActionLink("返回借阅总览", "Index", null, new { @class = "badge badge-info" })
+</p>

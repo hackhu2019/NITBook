@@ -1,0 +1,12 @@
+﻿@model NITBook.Models.User
+@{
+    ViewBag.Title = "首页";
+    Layout = "~/Views/Shared/Mange.cshtml";
+    ViewBag.time = DateTime.Now;
+}
+
+<h2>
+    欢迎用户 @Model.userName 进入NIT 图书管理系统后台
+</h2>
+<strong>登陆时间: @ViewBag.time </strong>
+
