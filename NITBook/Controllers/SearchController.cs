@@ -3,9 +3,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using NITBook.Models;
+using NITBook.Filter;
 
 namespace NITBook.Controllers
 {
+    [IsAdmin]
     public class SearchController : Controller
     {
         public NITBookContext db = new NITBookContext();

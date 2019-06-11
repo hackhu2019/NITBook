@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using NITBook.Models;
+using NITBook.Filter;
 
 namespace NITBook.Controllers
 {
+    [IsAdmin]
     public class BorrowInfoesController : Controller
     {
         private NITBookContext db = new NITBookContext();

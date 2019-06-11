@@ -15,7 +15,11 @@ namespace NITBook.Controllers
         // GET: Reader
         public ActionResult Index()
         {
-            return View();
+            User user = (User)HttpContext.Session["user"];
+            ViewBag.id = user.Id;
+            ViewBag.name = user.userName;
+            ViewBag.time = user.LoginTime;
+            return View(user);
         }
 
         public ActionResult SearchBook()
@@ -86,7 +90,7 @@ namespace NITBook.Controllers
             user.password = password;
             db.SaveChanges();
             db.Configuration.ValidateOnSaveEnabled = true;
-            return View(user);
+            return Json("edit_success");
         }
 
         public ActionResult Cancellation() // 注销登陆，清空 Session
@@ -131,7 +135,8 @@ namespace NITBook.Controllers
             db.BorrowInfo.Add(info);
             db.SaveChanges();
             db.Configuration.ValidateOnSaveEnabled = true;
-            return RedirectToAction("BorrowInfoes",new {id=readId });
+            return Json("borrow_success");
+            // return RedirectToAction("BorrowInfoes", new {id=readId });
         }
 
         public ActionResult returnBook(int borrowId)
@@ -160,5 +165,7 @@ namespace NITBook.Controllers
             db.Configuration.ValidateOnSaveEnabled = true;
             return RedirectToAction("BorrowInfoes", new { id = info.readerId });
         }
+
+       
     }
 }

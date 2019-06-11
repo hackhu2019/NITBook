@@ -1,0 +1,43 @@
+﻿@model NITBook.Models.DataViewModel
+
+@{
+    ViewBag.Title = "NIT数据总览";
+    Layout = "~/Views/Shared/Mange.cshtml";
+}
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+    <legend>数据总览</legend>
+</fieldset>
+
+<div style="padding: 20px; background-color: #F2F2F2;">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md6">
+            <div class="layui-card">
+                <div class="layui-card-header">用户总数：@(Model.adminNum+Model.readerNum) 名</div>
+                <div class="layui-card-body">
+                    管理员数量：@Model.adminNum 名<br>
+                    读者数量：@Model.readerNum 名
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-md6">
+            <div class="layui-card">
+                <div class="layui-card-header">图书总数：@(Model.bookNum+Model.borrowNum)本</div>
+                <div class="layui-card-body">
+                    库存数量：@Model.bookNum<br>
+                    借出数量：@Model.borrowNum
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">图书分类数</div>
+                <div class="layui-card-body">
+                   已有类别：@Model.bookSortNum 种
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

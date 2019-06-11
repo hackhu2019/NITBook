@@ -1,21 +1,19 @@
 ﻿@model NITBook.Models.BookSort
 
 @{
-    ViewBag.Title = "编辑类别";
+    ViewBag.Title = "新增图书类别";
     Layout = "~/Views/Shared/Mange.cshtml";
 }
 
-<h2>编辑类别</h2>
+<h2>新增图书类别</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <hr />
+       <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.SortId)
-
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -26,12 +24,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="保存" class="btn btn-success" />
+                <input type="submit" value="新建" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
 
 <div>
-   @Html.ActionLink("返回总览", "Index", new { }, new { @class = "badge badge-info" })
+    @Html.ActionLink("返回总览", "Index", new { }, new { @class = "badge badge-info" })
 </div>

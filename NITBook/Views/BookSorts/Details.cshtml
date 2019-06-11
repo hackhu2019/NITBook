@@ -1,13 +1,14 @@
 ﻿@model NITBook.Models.BookSort
 
 @{
-    ViewBag.Title = "分类详情";
+    ViewBag.Title = "图书类别详情";
     Layout = "~/Views/Shared/Mange.cshtml";
 }
 
-<h2>分类详情</h2>
+<h2>Details</h2>
 
 <div>
+    <h4>类别详情</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -21,6 +22,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("编辑", "Edit", new { id = Model.SortId }) |
+    @Html.ActionLink("编辑", "Edit", new { id = Model.SortId }, new { @class = "badge badge-info" }) |
     @Html.ActionLink("返回总览", "Index", new { }, new { @class = "badge badge-info" })
 </p>

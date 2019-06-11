@@ -11,7 +11,7 @@ namespace NITBook.Migrations
                 "dbo.BookSorts",
                 c => new
                     {
-                        SortId = c.Int(nullable: false, identity: true),
+                        SortId = c.Int(nullable: false, identity: false),
                         Name = c.String(nullable: false, maxLength: 10),
                     })
                 .PrimaryKey(t => t.SortId);

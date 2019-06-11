@@ -2,9 +2,9 @@
     history.back(-1);
 });
 function check(returnInfo) {
-    if (returnInfo == "success") {
-        layer.msg("密码修改成功", { icon: 2 });
-        window.setTimeout(function () { window.location.href = "/Reader" }, 300);
+    if (returnInfo == "edit_success") {
+        layer.msg("密码修改成功");
+        window.setTimeout(function () { window.location.href = "/Reader" }, 1000);
     }
     else {
         alert("修改出错")
@@ -18,6 +18,10 @@ function checkInfo(info) {
     }
     else if (info == "noEnough") {
         layer.msg("书籍库存不足", {icon:2});
+    }
+    else if(info=="borrow_success"){
+        layer.msg("借阅成功");
+        window.setTimeout(function () { window.location.reload(); }, 500);
     }
 }
 var pwd1=$("#pwd1");

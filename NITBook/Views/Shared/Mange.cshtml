@@ -49,9 +49,9 @@
                         <a href="javascript:;">图书类别管理</a>
                         <dl class="layui-nav-child">
                             <dd>
-                                @Html.ActionLink("图书类别总览", "Index", "Sort")
+                                @Html.ActionLink("图书类别总览", "Index", "BookSorts")
                             </dd>
-                            <dd>@Html.ActionLink("图书类别新增", "Create", "Sort")</dd>
+                            <dd>@Html.ActionLink("图书类别新增", "Create", "BookSorts")</dd>
                         </dl>
                     </li>
                     <li class="layui-nav-item">
@@ -76,7 +76,7 @@
                             <dd>@Html.ActionLink("借阅信息新增创建", "Create", "BorrowInfoes")</dd>
                         </dl>
                     </li>
-                    <li class="layui-nav-item"><a href="">数据统计</a></li>
+                    <li class="layui-nav-item">@Html.ActionLink("数据总览", "Statistics", "NITMange")</li>
                 </ul>
             </div>
         </div>

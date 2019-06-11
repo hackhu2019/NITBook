@@ -167,16 +167,14 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
+    <Compile Include="Controllers\BookSortsController.cs" />
     <Compile Include="Controllers\BorrowInfoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NITMangeController.cs" />
     <Compile Include="Controllers\ReaderController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
-    <Compile Include="Controllers\SortController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Filter\IsAdminAttribute.cs" />
     <Compile Include="Filter\IsAuthorizeAttribute.cs" />
@@ -224,11 +222,24 @@
     <Compile Include="Migrations\201906060656590_addUrl.Designer.cs">
       <DependentUpon>201906060656590_addUrl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906110045163_update.cs" />
+    <Compile Include="Migrations\201906110045163_update.Designer.cs">
+      <DependentUpon>201906110045163_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906110100358_fixBug.cs" />
+    <Compile Include="Migrations\201906110100358_fixBug.Designer.cs">
+      <DependentUpon>201906110100358_fixBug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906110120332_fix.cs" />
+    <Compile Include="Migrations\201906110120332_fix.Designer.cs">
+      <DependentUpon>201906110120332_fix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BookSort.cs" />
     <Compile Include="Models\BorrowInfo.cs" />
+    <Compile Include="Models\DataViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\NITBookContext.cs" />
@@ -396,18 +407,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Info.cshtml" />
@@ -423,8 +423,6 @@
     <Content Include="Views\Search\Result.cshtml" />
     <Content Include="Views\Shared\Mange.cshtml" />
     <Content Include="Views\NITMange\Index.cshtml" />
-    <Content Include="Views\Sort\Create.cshtml" />
-    <Content Include="Views\Sort\Index.cshtml" />
     <Content Include="Views\NITMange\Cancellation.cshtml" />
     <Content Include="Views\Users\Create.cshtml" />
     <Content Include="Views\Users\Delete.cshtml" />
@@ -446,10 +444,13 @@
     <Content Include="Views\Reader\BooksList.cshtml" />
     <Content Include="Views\Reader\bookDetails.cshtml" />
     <Content Include="Views\Reader\BorrowInfoes.cshtml" />
-    <Content Include="Views\Sort\Details.cshtml" />
-    <Content Include="Views\Sort\Edit.cshtml" />
-    <Content Include="Views\Sort\Delete.cshtml" />
     <Content Include="Views\Reader\Result.cshtml" />
+    <Content Include="Views\NITMange\Statistics.cshtml" />
+    <Content Include="Views\BookSorts\Create.cshtml" />
+    <Content Include="Views\BookSorts\Delete.cshtml" />
+    <Content Include="Views\BookSorts\Details.cshtml" />
+    <Content Include="Views\BookSorts\Edit.cshtml" />
+    <Content Include="Views\BookSorts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -493,6 +494,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906060656590_addUrl.resx">
       <DependentUpon>201906060656590_addUrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906110045163_update.resx">
+      <DependentUpon>201906110045163_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906110100358_fixBug.resx">
+      <DependentUpon>201906110100358_fixBug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906110120332_fix.resx">
+      <DependentUpon>201906110120332_fix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

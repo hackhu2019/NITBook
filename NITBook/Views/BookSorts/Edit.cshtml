@@ -1,37 +1,32 @@
 ﻿@model NITBook.Models.BookSort
 
 @{
-    ViewBag.Title = "创建图书类";
+    ViewBag.Title = "编辑类别";
     Layout = "~/Views/Shared/Mange.cshtml";
 }
 
+<h2>编辑类别</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>图书分类新增</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.SortId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.SortId,  new { @class = "form-control", @placeholder = "请输入图书分类编号" } )
-                @Html.ValidationMessageFor(model => model.SortId, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @Html.HiddenFor(model => model.SortId)
+
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "请输入图书分类名称" } })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="创建" class="btn btn-success" />
+                <input type="submit" value="保存" class="btn btn-success" />
             </div>
         </div>
     </div>

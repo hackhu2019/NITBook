@@ -5,8 +5,47 @@
     ViewBag.time = DateTime.Now;
 }
 
-<h2>
-    欢迎用户 @Model.userName 进入NIT 图书管理系统后台
-</h2>
-<strong>登陆时间: @ViewBag.time </strong>
+<article class="layui-layout-admin clearfix">
+    <div class="panel">
+        <div class="panel-body">
+            <p class="f-20 text-success">
+                NIT图书管理系统
+                <span class="text-info" style="font-size:2rem;">v1.1</span>
+                管理员后台
+            </p>
+            <h2>登录时间：@DateTime.Now.ToString()</h2>
+            <h2>登录账户：@Model.userName</h2>
+            <table class="table table-border table-bordered table-bg mt-20">
+                <thead>
+                    <tr>
+                        <th colspan="2" scope="col">服务器信息</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>服务器计算机名</td>
+                        <td><span id="lbServerName">@Server.MachineName</span></td>
+                    </tr>
+                    <tr>
+                        <td>服务器域名</td>
+                        <td>@HttpContext.Current.Request.Url.Host</td>
+                    </tr>
+                    <tr>
+                        <td>服务器端口 </td>
+                        <td>@HttpContext.Current.Request.Url.Port</td>
+                    </tr>
+                    <tr>
+                        <td>当前Session数量 </td>
+                        <td>@Session.Count</td>
+                    </tr>
+                    <tr>
+                        <td>当前SessionID </td>
+                        <td>@Session.SessionID</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</article>
 

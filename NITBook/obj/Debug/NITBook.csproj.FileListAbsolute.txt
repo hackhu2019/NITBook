@@ -97,3 +97,6 @@ F:\DotNet\NITBook\NITBook\obj\Debug\NITBook.Migrations.userIDTransformInt.resour
 F:\DotNet\NITBook\NITBook\obj\Debug\NITBook.Migrations.user.resources
 F:\DotNet\NITBook\NITBook\obj\Debug\NITBook.Migrations.userUpdate.resources
 F:\DotNet\NITBook\NITBook\obj\Debug\NITBook.Migrations.addUrl.resources
+F:\DotNet\NITBook\NITBook\obj\Debug\NITBook.Migrations.update.resources
+F:\DotNet\NITBook\NITBook\obj\Debug\NITBook.Migrations.fixBug.resources
+F:\DotNet\NITBook\NITBook\obj\Debug\NITBook.Migrations.fix.resources
