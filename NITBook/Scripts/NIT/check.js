@@ -43,7 +43,7 @@ pwd1.change(function() {
 
 var pwd2=$("#pwd2");
 pwd2.change(function(){
-    if(pwd1.val!=pwd2.val){
+    if(pwd1.val()!=pwd2.val()){
         layer.msg('二次输入密码不一致，请重新输入密码！', { icon: 2, time: 1000 });
         pwd2.focus();
     }
@@ -53,14 +53,17 @@ $("#submit").click(function () {
     if (pwd1.val().trim().length <= 0) {
         layer.msg('请勿更改为空密码', { icon: 2, time: 1000 });
         pwd1.focus();
+        return false;
     }
     else if (pwd2.val().trim().length <= 0) {
         layer.msg('请勿更改为空密码', { icon: 2, time: 1000 });
         pwd2.focus();
+        return false;
     }
-    else if (pwd1.val != pwd2.val) {
+    else if (pwd1.val() != pwd2.val()) {
         layer.msg('二次输入密码不一致，请重新输入密码！', { icon: 2, time: 1000 });
         pwd2.focus();
+        return false;
     }
 })
 

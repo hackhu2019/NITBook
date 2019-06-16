@@ -27,11 +27,13 @@ inputName.change(function () {
         inputName.css('color', 'red');
         alert("用户名要大于 6 位有效字符");
         inputName.focus();
+        return false;
     }
     else if (inputName.val().length > 12) {
         inputName.css('color', 'red');
         alert("用户名要小于 12 位有效字符");
         inputName.focus();
+        return false;
     }
     else {
         inputName.css('color', '#000000');
